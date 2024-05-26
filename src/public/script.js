@@ -74,13 +74,13 @@ const handleSubmit = async (evt) => {
   if (!passRegex.test(password.value)) {
     // render error
     return displayError(
-      "Password is too simple, use alpha numeric with special characters!"
+      "Password is too simple, use alpha numeric and special characters!"
     );
   }
 
   if (password.value !== confirmPassword.value) {
     // render error
-    return displayError("Password do not match!");
+    return displayError("Passwords do not match!");
   }
 
   button.disabled = true;
@@ -107,7 +107,7 @@ const handleSubmit = async (evt) => {
     return displayError(error);
   }
 
-  displaySuccess("Your password is resets successfully!");
+  displaySuccess("Your password was reset successfully!");
 
   // resetting the form
   password.value = "";

@@ -196,24 +196,24 @@ export const updateProfile: RequestHandler = async (
 
   const avatar = req.files?.avatar as formidable.File;
   //console.log(avatar); //avatar.filepath este undefined  ********************************
-  //let theFilepath="";
-  let theFilepath=avatar.filepath;
-  // if(Array.isArray(avatar)==true){
-  //   const obj = {...avatar};
-  //   //console.log(obj);
-  //   if(obj) { 
-  //     //console.log(obj["0"].filepath);
-  //     theFilepath=obj[0].filepath;
-  //   }
-  // }
-  // else{
-  //   theFilepath=avatar.filepath;
-  // }
+  let theFilepath="";
+  //let theFilepath=avatar.filepath;
+  if(Array.isArray(avatar)==true){
+    const obj = {...avatar};
+    //console.log(obj);
+    if(obj) { 
+      //console.log(obj["0"].filepath);
+      theFilepath=obj[0].filepath;
+    }
+  }
+  else{
+    theFilepath=avatar.filepath;
+  }
   
   
 
   const user = await User.findById(req.user.id);
-  if (!user) throw new Error("something went wrong, user not found!");
+  if (!user) throw new Error("Something went wrong, user not found!");
 
   if (typeof theName !== "string")
     return res.status(422).json({ error: "Invalid name!" });
@@ -262,7 +262,7 @@ export const logOut: RequestHandler = async (req, res) => {
 
   const token = req.token;
   const user = await User.findById(req.user.id);
-  if (!user) throw new Error("something went wrong, user not found!");
+  if (!user) throw new Error("Something went wrong, user not found!");
 
   // logout from all devices
   if (fromAll === "yes") user.tokens = [];

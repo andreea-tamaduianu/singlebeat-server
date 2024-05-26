@@ -1,23 +1,25 @@
 export const categories = [
-    "Arts",
-    "Business",
-    "Education",
-    "Entertainment",
-    "Kids & Family",
-    "Music",
-    "Science",
-    "Tech",
-    "Others",
+  'Pop',
+  'Rock',
+  'Hip Hop',
+  'R&B',
+  'Country',
+  'Jazz',
+  'Latino',
+  'Reggae',
+  'Classical',
+  'Others',
   ];
   
   export type categoriesTypes =
-    | "Arts"
-    | "Business"
-    | "Education"
-    | "Entertainment"
-    | "Kids & Family"
-    | "Music"
-    | "Science"
-    | "Tech"
-    | "Others";
+  | 'Pop'
+  | 'Rock'
+  | 'Hip Hop'
+  | 'R&B'
+  | 'Country'
+  | 'Jazz'
+  | 'Latino'
+  | 'Reggae'
+  | 'Classical'
+  | 'Others';
   

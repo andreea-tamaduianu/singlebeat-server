@@ -36,14 +36,14 @@ export const sendVerificationMail = async (token: string, profile: Profile) => {
 
   const { name, email, userId } = profile;
 
-  const welcomeMessage = `Hi ${name}, welcome to Podify! There are so much thing that we do for verified users. Use the given OTP to verify your email.`;
+  const welcomeMessage = `Hi ${name}, welcome to SingleBeat! There are so many things that we do for our verified users. Use the given OTP to verify your email.`;
 
   transport.sendMail({
     to: email,
     from: VERIFICATION_EMAIL,
     subject: "Welcome message",
     html: generateTemplate({
-      title: "Welcome to Podify",
+      title: "Welcome to SingleBeat",
       message: welcomeMessage,
       logo: "cid:logo",
       banner: "cid:welcome",
@@ -76,14 +76,14 @@ export const sendForgetPasswordLink = async (options: Options) => {
   const { email, link } = options;
 
   const message =
-    "We just received a request that you forgot your password. No problem you can use the link below and create brand new password.";
+    "We just received a request that you forgot your password. No problem. You can use the link below and create a brand new one.";
 
   transport.sendMail({
     to: email,
     from: VERIFICATION_EMAIL,
     subject: "Reset Password Link",
     html: generateTemplate({
-      title: "Forget Password",
+      title: "Forgot Password",
       message,
       logo: "cid:logo",
       banner: "cid:forget_password",
@@ -111,7 +111,7 @@ export const sendPassResetSuccessEmail = async (
 ) => {
   const transport = generateMailTransporter();
 
-  const message = `Dear ${name} we just updated your new password. You can now sign in with your new password.`;
+  const message = `Dear ${name} we just updated your password. You can now sign in with your new password.`;
 
   transport.sendMail({
     to: email,
