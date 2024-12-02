@@ -196,19 +196,21 @@ export const updateProfile: RequestHandler = async (
 
   const avatar = req.files?.avatar as formidable.File;
   //console.log(avatar); //avatar.filepath este undefined  ********************************
-  let theFilepath="";
-  //let theFilepath=avatar.filepath;
-  if(Array.isArray(avatar)==true){
-    const obj = {...avatar};
-    //console.log(obj);
-    if(obj) { 
-      //console.log(obj["0"].filepath);
-      theFilepath=obj[0].filepath;
-    }
-  }
-  else{
-    theFilepath=avatar.filepath;
-  }
+  // let theFilepath="";
+  // //let theFilepath=avatar.filepath;
+  // if(Array.isArray(avatar)==true){
+  //   const obj = {...avatar};
+  //   //console.log(obj);
+  //   if(obj) { 
+  //     //console.log(obj["0"].filepath);
+  //     theFilepath=obj[0].filepath;
+  //   }
+  // }
+  // else{
+  //   theFilepath=avatar.filepath;
+  // }
+
+  let theFilepath=avatar.filepath;
   
   
 
